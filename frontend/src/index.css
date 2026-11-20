@@ -1,0 +1,200 @@
+@import "@fontsource-variable/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --app-canvas: #f6f8fb;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-[var(--app-canvas)] text-slate-900 font-sans antialiased;
+  }
+
+  * {
+    @apply border-slate-200;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-900;
+  }
+
+  /* Consistent, visible focus for elements that do not use Tailwind ring utilities. */
+  a:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  /* Surfaces */
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-card;
+  }
+
+  .card-header {
+    @apply flex flex-col gap-3 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .card-title {
+    @apply text-base font-semibold text-slate-900;
+  }
+
+  .card-subtitle {
+    @apply mt-1 text-sm text-slate-500;
+  }
+
+  .card-body {
+    @apply p-5;
+  }
+
+  .card-footer {
+    @apply flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-slate-50/70 px-5 py-4;
+  }
+
+  .surface-muted {
+    @apply rounded-lg bg-slate-50 text-slate-600;
+  }
+
+  .divider {
+    @apply border-t border-slate-200;
+  }
+
+  /* Page and section headings */
+  .page-title {
+    @apply text-2xl font-semibold tracking-tight text-slate-900;
+  }
+
+  .page-subtitle {
+    @apply mt-1 text-sm text-slate-600;
+  }
+
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+  }
+
+  /* Toolbars and table layout */
+  .toolbar {
+    @apply flex flex-col gap-3 border-b border-slate-200 bg-white px-4 py-4 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .data-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .data-table thead {
+    @apply bg-slate-50 text-left text-xs font-semibold uppercase tracking-wider text-slate-600;
+  }
+
+  .data-table th {
+    @apply whitespace-nowrap px-4 py-3;
+  }
+
+  .data-table td {
+    @apply whitespace-nowrap px-4 py-3 text-slate-700;
+  }
+
+  .data-table tbody tr {
+    @apply border-t border-slate-100 transition-colors hover:bg-slate-50/70;
+  }
+
+  .data-table-compact th,
+  .data-table-compact td {
+    @apply px-3 py-2;
+  }
+
+  .table-actions {
+    @apply flex items-center justify-end gap-1.5;
+  }
+
+  /* Forms */
+  .form-label {
+    @apply mb-1.5 block text-sm font-medium text-slate-700;
+  }
+
+  .form-control {
+    @apply h-10 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500;
+  }
+
+  .form-control-error {
+    @apply border-rose-400 focus:border-rose-500 focus:ring-rose-500/20;
+  }
+
+  .form-error {
+    @apply mt-1.5 block text-xs font-medium text-rose-600;
+  }
+
+  .form-hint {
+    @apply mt-1.5 block text-xs text-slate-500;
+  }
+
+  /* Status and feedback */
+  .status-dot {
+    @apply mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-current;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center px-6 py-14 text-center;
+  }
+
+  .loading-state {
+    @apply flex flex-col items-center justify-center gap-3 py-16 text-slate-500;
+  }
+
+  .error-state {
+    @apply rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800;
+  }
+
+  /* Links and tab controls */
+  .text-link {
+    @apply rounded font-medium text-brand-700 transition-colors hover:text-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .button-link {
+    @apply inline-flex h-10 items-center justify-center gap-2 rounded-lg px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .button-link-primary {
+    @apply bg-brand-600 text-white shadow-sm hover:bg-brand-700;
+  }
+
+  .button-link-outline {
+    @apply border border-slate-300 bg-white text-slate-700 shadow-sm hover:border-slate-400 hover:bg-slate-50;
+  }
+
+  .tab-button {
+    @apply rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .tab-button-active {
+    @apply bg-brand-600 text-white shadow-sm;
+  }
+
+  .tab-button-inactive {
+    @apply border border-slate-200 bg-white text-slate-700 hover:bg-slate-50;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .print-area {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

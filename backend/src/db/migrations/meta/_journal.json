@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794755263790,
+      "tag": "0000_typical_human_cannonball",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794846249193,
+      "tag": "0001_dry_silver_fox",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795200000000,
+      "tag": "0002_ba_recommendation_statuses",
+      "breakpoints": true
+    }
+  ]
+}
